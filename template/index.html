@@ -1,73 +1,187 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
+{% load static %}
 <head>
-    <title>
-        Certificate generator
-    </title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="{% static '/static/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="{% static 'Process-Steps.css'%}">
 </head>
-<body>
-    <section id="sec1">
-        <input type='file' class="w3-display-middle" name='img' size='65' id='uploadimage' />
-    </section>
-    <div id="forminput">
-        <form action="/generate" style="display:none" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input type="text" id="formimg" name="image">
-            <input type="text" name="key" value="{{secret}}">
-            <input type="text" id="config" name="config">
-        </form>
-    </div>
 
-    <section id="sec2" style="display: none;">
-        <div class="instruction w3-padding w3-text-black">
-            <h1 class="w3-center w3-text-blue">Instruction</h1>
-            <ol>
-                <li>Select a point on the output image</li>
-                <li>On the model that appear select the point where text needs to be displayed</li>
-                <li>Press apply to save the points</li>
-                <li>After you have done all the changes click on the Generate all button below.</li>
-            </ol>
-            <button class="w3-btn w3-round w3-blue w3-block w3-display-bottommiddle" id="generate">Generate all</button>
+<body id="page-top">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">Brand</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler float-right" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div
+                class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#download">How it works</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Follow us</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Signup</a></li>
+                </ul>
         </div>
-        <div class="result">
-            <div id="container">
-                <canvas id="canvas" class="w3-center" width="842" height="595" style="border:3px solid black">Loading
-                    Image....</canvas>
+        </div>
+    </nav>
+    <header class="masthead" style="background:url('{% static '/static/img/bg-pattern.png' %}'), linear-gradient(to left, #7b4397, #dc2430);height:100%;">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-7 my-auto">
+                    <div class="mx-auto header-content">
+                        <h1 class="mb-5">This is a Certificate generating website that lets you generate your custom certificates in bulk within a minutes...&nbsp;&nbsp;</h1><a class="btn btn-outline-warning btn-xl js-scroll-trigger" role="button" href="#download">Start Now for Free!</a></div>
+                </div>
+                <div class="col-lg-5 my-auto">
+                    <div class="device-container">
+                        <div class="device-mockup iphone6_plus portrait white">
+                            <div class="device" style="background-image:url('{% static '/static/img/iphone_6_plus_white_port.png'%}');">
+                                <div class="screen"><img class="img-fluid" src="{% static '/static/img/cert.jpeg'%}"></div>
+                                <div class="button"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="iphone-mockup"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="download" class="download text-center bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h2 class="section-heading">How It Works ?</h2>
+                    <p>Just follow these simple steps and get started!</p>
+                    <div class="badges"><a class="badge-link" href="#"></a><a class="badge-link" href="#"></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="container steps-container">
+            <div class="col-6 col-lg-6 col-sm-4 col-md-2 process-step">
+                <div class="primary-color primary-background-color step-base"><strong class="step-title">Step 1</strong>
+                    <p class="step-short-desc">Step name and short info</p>
+                </div>
+                <div class="step-caption">
+                    <div class="secondary-color secondary-background-color caption-content">
+                        <p>Details about first step. Min-height of 7.5em, padding .5em 1rem. Max-height: 15em.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-6 col-sm-4 col-md-2 process-step">
+                <div class="primary-color primary-background-color step-base"><strong class="step-title">Step 2</strong>
+                    <p class="step-short-desc">Step name and longer info </p>
+                </div>
+                <div class="step-caption">
+                    <div class="secondary-color secondary-background-color caption-content">
+                        <p class="secondary-color secondary-background-color caption-content">Details about first step. Min-height of 7.5em, padding .5em 1rem. Max-height: 15em. Details about first step. Min-height of 7.5em, padding .5em 1rem. Max-height: 15em.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-6 col-sm-4 col-md-2 process-step">
+                <div class="primary-color primary-background-color step-base"><strong class="step-title">Step 3</strong>
+                    <p class="step-short-desc">Step name and image</p>
+                </div>
+                <div class="step-caption">
+                    <div class="secondary-color secondary-background-color caption-content">
+                        <p>Some text above image.</p><img src="https://unsplash.it/1800/900?image=1051"></div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-6 col-sm-4 col-md-2 process-step">
+                <div class="primary-color primary-background-color step-base"><strong class="step-title">Step 4</strong>
+                    <p class="step-short-desc">Step name and short info</p>
+                </div>
+                <div class="step-caption">
+                    <div class="secondary-color secondary-background-color caption-content">
+                        <p>Details about first step. Min-height of 7.5em, padding .5em 1rem. Max-height: 15em.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-6 col-sm-4 col-md-2 process-step">
+                <div class="primary-color primary-background-color step-base"><strong class="step-title">Step 5</strong>
+                    <p class="step-short-desc">Step name and short info</p>
+                </div>
+                <div class="step-caption">
+                    <div class="secondary-color secondary-background-color caption-content">
+                        <p>Details about first step. Min-height of 7.5em, padding .5em 1rem. Max-height: 15em.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <div class="w3-modal" id="textmodal">
-        <div class="w3-modal-content w3-round w3-card w3-padding" style="width:500px;">
-            <div class="w3-container">
-                <select name="keys" id="keys">
-                    {% for i in headers %}
-                    <option value="">{{i}}</option>
-                    {% endfor %}
-                </select>
-                <input type="text" id="coordinates" readonly class="w3-input w3-margin w3-border">
-                <input type="text" id="textfield" class="w3-input w3-margin" placeholder="Enter text">
-                <button class="w3-btn w3-round w3-blue w3-margin w3-right" id="addpoint">Apply</button>
-                <button class="w3-btn w3-round w3-red w3-margin w3-right"
-                    onclick="$('#textmodal').hide()">Cancel</button>
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h2>Unlimited Features, Unlimited Fun</h2>
+                <p class="text-muted"></p>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 my-auto">
+                    <div class="device-container">
+                        <div class="device-mockup iphone6_plus portrait white">
+                            <div class="device" style="background-image:url('{% static '/static/img/iphone_6_plus_white_port.png'%}');">
+                                <div class="screen"><img class="img-fluid" src="'{% static '/static/img/cert.jpeg' %}'"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 my-auto">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="feature-item"><i class="icon-screen-smartphone text-primary"></i>
+                                    <h3>Easy and Efficient</h3>
+                                    <p class="text-muted">No lot of time wasting just 3 steps and get the work done!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="feature-item"><i class="icon-camera text-primary"></i>
+                                    <h3>Flexible Use</h3>
+                                    <p class="text-muted">Get the certificates of your own designes!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="feature-item"><i class="icon-present text-primary"></i>
+                                    <h3>Free to Use</h3>
+                                    <p class="text-muted">As always, this is free to download and use for any purpose!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="feature-item"><i class="icon-lock-open text-primary"></i>
+                                    <h3>Open Source</h3>
+                                    <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <section class="cta" style="background-image:url('{% static '/static/img/bg-cta.jpg'%}');">
+        <div class="cta-content">
+            <div class="container">
+                <h2>Contributors and collaborators are always welcomed.<br></h2><a class="btn btn-outline-warning btn-xl js-scroll-trigger" role="button" href="#contact">COntribute or collaborate</a></div>
+        </div>
+        <div class="overlay"></div>
+    </section>
+    <section id="contact" class="contact bg-primary">
+        <div class="container">
+            <h2><span>We&nbsp;</span><i class="fa fa-heart"></i><span>&nbsp;new friends!</span></h2>
+            <ul class="list-inline list-social">
+                <li class="list-inline-item social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li class="list-inline-item social-google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="{% static 'new-age.js'%}"></script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{% static 'script.js' %}"></script>
-<script>
-    localStorage.setItem("key", "{{secret}}");
-    $("#generate").on("click", () => {
-        temp = String(image);
-        $("#formimg").val(image);
-        $("#config").val(JSON.stringify(config));
-        $("#forminput form").submit();
-        localStorage.clear();
-    });
-</script>
 
 </html>
